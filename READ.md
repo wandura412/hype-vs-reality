@@ -44,7 +44,7 @@ hype_vs_reality/
 │   └── analysis.py      # Backtesting engine & plotting
 └── requirements.txt     # Dependencies
 ```
-🚀 How to Run Locally
+## 🚀 How to Run Locally
 1. Clone the Repo
 Bash
 
@@ -75,7 +75,7 @@ python src/sentiment.py
 
 # Step 3: Run the Analysis & Backtest
 python src/analysis.py
-📈 The Strategy Logic
+## 📈 The Strategy Logic
 The backtesting engine (src/analysis.py) tests the following hypothesis:
 
 Signal: Calculate the VADER Compound Score (-1 to +1) for daily news.
@@ -86,7 +86,7 @@ Exit Condition: If Sentiment <= 0 (Negative/Neutral), close position and hold CA
 
 Benchmark: Compare cumulative returns against a standard "Buy and Hold" strategy.
 
-🤖 Automation
+## 🤖 Automation
 This project uses GitHub Actions to run a Cron job every day at 09:00 UTC.
 
 It spins up an Ubuntu container.
