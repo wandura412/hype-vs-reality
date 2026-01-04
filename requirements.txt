@@ -1,0 +1,8 @@
+ccxt        
+pandas               
+requests             
+beautifulsoup4       
+textblob             
+openpyxl 
+matplotlib  
+vaderSentiment          
