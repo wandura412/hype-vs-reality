@@ -4,13 +4,13 @@ import os
 import numpy as np
 
 def analyze_market():
-    print("🔄 Loading data...")
+    print("Loading data...")
     
     price_path = os.path.join('data', 'price_history', 'BTC_USDT_price.csv')
     sent_path = os.path.join('data', 'raw_tweets', 'news_sentiment.csv')
     
     if not os.path.exists(price_path) or not os.path.exists(sent_path):
-        print("❌ Data missing! Run data_loader.py and sentiment.py first.")
+        print("Data missing! Run data_loader.py and sentiment.py first.")
         return
 
     price_df = pd.read_csv(price_path)
@@ -24,8 +24,8 @@ def analyze_market():
     # 🧙‍♂️ MOCK DATA GENERATOR (Delete this once you have 1 week of data)
     unique_days = sent_df['date'].dt.date.nunique()
     if unique_days < 5:
-        print(f"⚠️ Only {unique_days} day(s) of data found.")
-        print("🧪 Generating MOCK historical sentiment for the backtest...")
+        print(f"Only {unique_days} day(s) of data found.")
+        print("Generating MOCK historical sentiment for the backtest...")
         dates = price_df['timestamp'].dt.date.unique()
         # Random sentiment between -0.5 and 0.5
         mock_data = {
@@ -47,7 +47,7 @@ def analyze_market():
     merged = pd.merge(daily_price, daily_sent, on='day', how='inner')
     
     # =========================================================
-    # 🚀 LEVEL 1: THE BACKTEST ENGINE
+    # LEVEL 1: THE BACKTEST ENGINE
     # =========================================================
     
     # 1. Calculate Daily Market Returns (Percentage Change)
@@ -67,10 +67,10 @@ def analyze_market():
     merged['cumulative_market'] = (1 + merged['market_returns']).cumprod()
     merged['cumulative_strategy'] = (1 + merged['strategy_returns']).cumprod()
     
-    print("✅ Backtest Complete!")
+    print("Backtest Complete!")
 
     # =========================================================
-    # 📊 VISUALIZATION
+    # VISUALIZATION
     # =========================================================
     plt.style.use('ggplot') # Makes the chart look professional
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 10), sharex=True)

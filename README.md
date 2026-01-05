@@ -1,4 +1,4 @@
-# 🚀 Hype vs. Reality: Algo-Trading Sentiment Engine
+# Hype vs. Reality: Algo-Trading Sentiment Engine
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
 ![Build](https://img.shields.io/badge/Build-Passing-brightgreen.svg)
@@ -8,13 +8,13 @@
 
 ---
 
-## 📊 The Results (Backtest)
+## The Results (Backtest)
 ![Strategy Performance](chart_preview.png)
 *(The blue line represents the custom sentiment strategy vs. the gray "Buy & Hold" benchmark).*
 
 ---
 
-## 💡 Project Overview
+## Project Overview
 In algorithmic trading, "Alpha" often comes from alternative data. This project answers the question: **"Can we predict Bitcoin price movements based purely on news sentiment?"**
 
 It builds a fully automated pipeline that:
@@ -24,13 +24,13 @@ It builds a fully automated pipeline that:
 4.  **Backtests** a "Long-Only" strategy against a benchmark.
 5.  **Automates** the entire workflow using **GitHub Actions** (CI/CD).
 
-## 🛠️ Tech Stack
+## Tech Stack
 * **Data Engineering:** `BeautifulSoup4`, `Requests` (Web Scraping), `ccxt` (Crypto Exchange APIs).
 * **Natural Language Processing (NLP):** `VADER Sentiment` (Optimized for social media text/emojis).
 * **Analysis & Visualization:** `Pandas`, `Matplotlib`, `NumPy`.
 * **DevOps:** GitHub Actions (Cron jobs for daily automated data collection).
 
-## 📂 Project Structure
+## Project Structure
 ```text
 hype_vs_reality/
 │
@@ -44,7 +44,7 @@ hype_vs_reality/
 │   └── analysis.py      # Backtesting engine & plotting
 └── requirements.txt     # Dependencies
 ```
-## 🚀 How to Run Locally
+## How to Run Locally
 1. Clone the Repo
 Bash
 
@@ -65,7 +65,8 @@ source venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 3. Run the Pipeline
-Bash
+
+## Bash
 
 # Step 1: Get latest Price Data
 python src/data_loader.py
@@ -86,7 +87,7 @@ Exit Condition: If Sentiment <= 0 (Negative/Neutral), close position and hold CA
 
 Benchmark: Compare cumulative returns against a standard "Buy and Hold" strategy.
 
-## 🤖 Automation
+## Automation
 This project uses GitHub Actions to run a Cron job every day at 09:00 UTC.
 
 It spins up an Ubuntu container.

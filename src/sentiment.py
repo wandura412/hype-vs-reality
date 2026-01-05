@@ -10,7 +10,7 @@ def get_crypto_news():
     Scrapes headlines from CoinTelegraph and scores them with VADER.
     """
     url = "https://cointelegraph.com/tags/bitcoin"
-    print(f"🕵️‍♂️ Scraping news from {url}...")
+    print(f"Scraping news from {url}...")
     
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
@@ -36,7 +36,7 @@ def get_crypto_news():
             vs = analyzer.polarity_scores(text)
             score = vs['compound']
             
-            print(f"📝 '{text[:30]}...' -> Score: {score}") # Print score to see it working
+            print(f" '{text[:30]}...' -> Score: {score}") # Print score to see it working
             
             news_data.append({
                 'date': datetime.datetime.now().strftime("%Y-%m-%d"),
@@ -54,12 +54,12 @@ def get_crypto_news():
         write_header = not os.path.exists(output_path)
         df.to_csv(output_path, index=False, mode='a', header=write_header)
         
-        print(f"✅ Extracted {len(df)} headlines.")
-        print(f"📊 New Average Sentiment: {df['sentiment_score'].mean():.4f}")
+        print(f"Extracted {len(df)} headlines.")
+        print(f"New Average Sentiment: {df['sentiment_score'].mean():.4f}")
         return df
         
     except Exception as e:
-        print(f"❌ Error scraping: {e}")
+        print(f"Error scraping: {e}")
 
 if __name__ == "__main__":
     get_crypto_news()
